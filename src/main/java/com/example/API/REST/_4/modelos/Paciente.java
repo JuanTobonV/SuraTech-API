@@ -12,14 +12,14 @@ public class Paciente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre; // No debe tener más de cuarenta caracteres
-    private LocalDate anioNacimiento;
+    private LocalDate anioNacimiento; //No debe de ser mayor a 2024 ni menor a 1920
     private String ciudad;
     private String correo;
-    private String telefono;
+    private String telefono; //Debe tener 10 digitos
     private String ips;
     private Boolean tienePoliza;
-    private String grupoIngresos;
-    private LocalDate fechaAfilacion;
+    private String grupoIngresos; // Solo sirve si es A, B o C
+    private LocalDate fechaAfilacion; //entre el 1995 al 2024
 
     public Paciente() {
     }
