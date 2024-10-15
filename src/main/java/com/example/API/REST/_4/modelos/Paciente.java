@@ -1,8 +1,11 @@
 package com.example.API.REST._4.modelos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "pacientes")
@@ -20,6 +23,25 @@ public class Paciente {
     private Boolean tienePoliza;
     private String grupoIngresos; // Solo sirve si es A, B o C
     private LocalDate fechaAfilacion; //entre el 1995 al 2024
+
+    @ManyToOne
+    @JoinColumn(name= "fk_medico", referencedColumnName = "id") //Sirve para generar la foreign key
+    @JsonBackReference
+    private Medico medico;
+
+
+    @OneToMany(mappedBy = "paciente")
+    @JsonManagedReference
+    private List<SignoVital> signoVital;
+
+    @OneToMany(mappedBy = "paciente")
+    @JsonManagedReference
+    private List<Enfermedad> enfermedad;
+
+    @OneToMany(mappedBy = "paciente")
+    @JsonManagedReference
+    private List<Medicamento> medicamento;
+
 
     public Paciente() {
     }
