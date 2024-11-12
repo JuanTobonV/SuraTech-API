@@ -18,7 +18,7 @@ public class MedicamentoControlador {
     MedicamentoServicio medicamentoServicio;
 
     @PostMapping
-    public ResponseEntity <?> guardar(@RequestBody Medicamento datos){
+    public ResponseEntity<?> guardar(@RequestBody Medicamento datos){
 
         try {
             return ResponseEntity.status(HttpStatus.OK).body(medicamentoServicio.registrarMedicamento(datos));
