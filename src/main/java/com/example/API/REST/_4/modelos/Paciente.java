@@ -36,7 +36,7 @@ public class Paciente {
 
     @OneToMany(mappedBy = "paciente")
     @JsonManagedReference
-    private List<Enfermedad> enfermedad;
+    private List<Enfermedad> enfermedades;
 
     @OneToMany(mappedBy = "paciente")
     @JsonManagedReference
